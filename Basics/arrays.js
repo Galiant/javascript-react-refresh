@@ -12,6 +12,14 @@ const companies = [
 
 const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 
+const people = [
+  { name: 'Alice', age: 21, gender: 'female' },
+  { name: 'Max', age: 20, gender: 'male' },
+  { name: 'Jane', age: 20, gender: 'female' },
+  { name: 'Jon', age: 21, gender: 'male' },
+  { name: 'Alex', age: 20, gender: 'male' },
+];
+
 // forEach - Get 21 and older
 for (let i = 0; i < companies.length; i++) {
   console.log(companies[i]);
@@ -53,6 +61,16 @@ const lastedTenYears = companies.filter(
 );
 
 console.log('LASTED 10 YEARS', lastedTenYears);
+
+// Filter array of people to male and female
+const output = () => {
+  const male = people.filter(person => person.gender === 'male');
+  const female = people.filter(person => person.gender === 'female');
+
+  return { male: male, female: female };
+};
+
+console.log('PEOPLE_OUTPUT', output());
 
 // map
 // Create array of company names
@@ -127,3 +145,21 @@ const combine = ages
   .reduce((a, b) => a + b, 0);
 
 console.log('COMBINE', combine);
+
+let result = [{ x: 1 }, { x: 2 }, { x: 3 }];
+
+const reduceResult = result.reduce((total, item) => total + item.x, 0);
+
+console.log('REDUCE_RESULT', reduceResult);
+
+// Reduce people array to male and female
+const maleFemale = people.reduce(
+  (acc, item) => {
+    if (item.gender === 'male') acc.male.push(item);
+    else acc.female.push(item);
+    return acc;
+  },
+  { male: [], female: [] }
+);
+
+console.log('MALE_FEMALE_OUTPUT', maleFemale);

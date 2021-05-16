@@ -1,7 +1,13 @@
 import React from 'react';
+import ReactUseEffect from './ReactUseEffect/ReactUseEffect';
 
 function App() {
-  return <h1>React Refresh</h1>;
+  return (
+    <div>
+      <h1>React useState And useEffect</h1>
+      <ReactUseEffect />
+    </div>
+  );
 }
 
 export default App;

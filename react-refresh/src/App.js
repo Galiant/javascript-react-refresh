@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactUseEffect from './ReactHooks/ReactUseEffect';
 import ReactUseReducer from './ReactHooks/ReactUseReducer';
+import FetchGithubData from './FetchData/FetchGithubData';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
         <ReactUseEffect />
         <h2>React useReducer</h2>
         <ReactUseReducer />
+        <h3>Fetch Github Data | useEffect & Fetch</h3>
+        <FetchGithubData />
       </div>
     </div>
   );

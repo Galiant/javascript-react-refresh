@@ -4,6 +4,14 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import DashboardPage from './pages/DashboardPage';
+import PostsPage from './pages/PostsPage';
 
 const store = createStore(
   rootReducer,
@@ -13,7 +21,13 @@ const store = createStore(
 const App = () => {
   return (
     <Provider store={store}>
-      <div>Hello, Redux</div>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={DashboardPage} />
+          <Route exact path='/posts' component={PostsPage} />
+          <Redirect to='/' />
+        </Switch>
+      </Router>
     </Provider>
   );
 };
